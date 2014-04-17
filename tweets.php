@@ -5,10 +5,12 @@ require_once("twitterauth/twitteroauth.php"); //Path to twitteroauth library
 //$twitteruser = "kaceykaso";
 $twitteruser = html_entity_decode($_POST['screenname']);
 $notweets = 30;
-$consumerkey = "CvAY9oUMMqOBJCxYBBYvpA";
-$consumersecret = "0Y7HEiYUWJe5UueC6tb9HRsY2t3lW0HBkZ0tc0WE";
-$accesstoken = "6277712-joPuOWtgksAvxdJzxwmd0JuAPLhWqfoWrLaiqHx9dK";
-$accesstokensecret = "ehSn2CCMRl4KJYKb6Ua1PjkcuCHQVdo5RtJKMNNuqg";
+
+// add twitter auth keys here
+$consumerkey = "";
+$consumersecret = "";
+$accesstoken = "";
+$accesstokensecret = "";
  
 function getConnectionWithAccessToken($cons_key, $cons_secret, $oauth_token, $oauth_token_secret) {
   $connection = new TwitterOAuth($cons_key, $cons_secret, $oauth_token, $oauth_token_secret);
@@ -41,7 +43,7 @@ $reply = "We scored the last $tweets_count tweets by @$twitteruser, ending at $t
 ini_set("auto_detect_line_endings", 1);
 $scores = array(); //this is where data from data.txt will be stored
 
-$handle = fopen("AFINN-111.csv","r") or die("EPIC FAIL!");
+$handle = fopen("AFIN-111.csv","r") or die("EPIC FAIL!"); //fixed filename CSV error
 
 while (($row = fgetcsv($handle, 10000, ",")) !== FALSE) {
 	//$row = explode(",", $data);
